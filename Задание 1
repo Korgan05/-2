@@ -1,0 +1,33 @@
+abstract class Worker {
+    protected String fullName;
+    Worker(String fullName) {
+        this.fullName = fullName;
+    }
+    abstract void doJob();
+}
+class Programmer extends Worker {
+    Programmer(String fullName) {
+        super(fullName);
+    }
+    @Override
+    void doJob() {
+        System.out.println(fullName + " занимается написанием программного кода.");
+    }
+}
+class TeamLeader extends Worker {
+    TeamLeader(String fullName) {
+        super(fullName);
+    }
+    @Override
+    void doJob() {
+        System.out.println(fullName + " контролирует работу коллектива и распределяет задачи.");
+    }
+}
+public class TaskOne {
+    public static void main(String[] args) {
+        Programmer coder = new Programmer("Корган");
+        TeamLeader boss = new TeamLeader("Куан");
+        coder.doJob();
+        boss.doJob();
+    }
+}
