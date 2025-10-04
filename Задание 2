@@ -1,0 +1,36 @@
+interface Documentable {
+    void createDocument();
+}
+interface Learner {
+    void joinCourse();
+}
+class Director implements Documentable {
+    private String fullName;
+
+    Director(String fullName) {
+        this.fullName = fullName;
+    }
+    @Override
+    public void createDocument() {
+        System.out.println(fullName + " составляет служебный документ.");
+    }
+}
+class Engineer implements Learner {
+    private String fullName;
+
+    Engineer(String fullName) {
+        this.fullName = fullName;
+    }
+    @Override
+    public void joinCourse() {
+        System.out.println(fullName + " участвует в профессиональном тренинге.");
+    }
+}
+public class TaskTwo {
+    public static void main(String[] args) {
+        Director chief = new Director("Айдар");
+        Engineer dev = new Engineer("Мадияр");
+        chief.createDocument();
+        dev.joinCourse();
+    }
+}
